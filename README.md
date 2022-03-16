@@ -17,10 +17,12 @@ func main() {
 	products := cartesian.Product(i, j) // [][]T
 	
 	for _, p := range products {
-		fmt.Println(p)
-    }   
+		fmt.Println(p)    
+	}   
 }
+
 ```
+
 ```
 $ go run
 [1 3]
