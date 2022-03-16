@@ -44,4 +44,5 @@ func TestProduct(t *testing.T) {
 			t.Fatalf("there should be %d but there were %d groups\n", e, n)
 		}
 	}
+
 }
