@@ -1,10 +1,10 @@
 package cartesian
 
 // nextIndex retrieves the next index for the next set
-func nextIndex(ix []int, lens func(i int) int) {
+func nextIndex(ix []int, lengthsFunc func(i int) int) {
 	for j := len(ix) - 1; j >= 0; j-- {
 		ix[j]++
-		if j == 0 || ix[j] < lens(j) {
+		if j == 0 || ix[j] < lengthsFunc(j) {
 			return
 		}
 		ix[j] = 0
@@ -16,6 +16,7 @@ func Product[T any](sets ...[]T) [][]T {
 	var product [][]T
 	for ix := make([]int, len(sets)); ix[0] < lengths(0); nextIndex(ix, lengths) {
 		var r []T
+
 		for j, k := range ix {
 			r = append(r, sets[j][k])
 		}
